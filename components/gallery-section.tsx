@@ -10,6 +10,7 @@ const galleryItems = [
     category: 'campus',
     title: 'Campus View',
     imageSrc: '/parade1.JPG',
+    thumbnailSrc: '/thumbs/parade1.JPG',
     description: 'A vibrant school parade captured on campus.',
   },
   {
@@ -17,6 +18,7 @@ const galleryItems = [
     category: 'classrooms',
     title: 'School Parade',
     imageSrc: '/parade2.JPG',
+    thumbnailSrc: '/thumbs/parade2.JPG',
     description: 'Students and staff gathering with pride during a memorable event.',
   },
   {
@@ -24,6 +26,7 @@ const galleryItems = [
     category: 'classrooms',
     title: 'Classroom Learning',
     imageSrc: '/class1.JPG',
+    thumbnailSrc: '/thumbs/class1.JPG',
     description: 'A bright classroom environment where learning is actively taking place.',
   },
   {
@@ -31,6 +34,7 @@ const galleryItems = [
     category: 'laboratories',
     title: 'School Mass',
     imageSrc: '/mass1.JPG',
+    thumbnailSrc: '/thumbs/mass1.JPG',
     description: 'Students participating in a joyful school mass celebration.',
   },
   {
@@ -38,6 +42,7 @@ const galleryItems = [
     category: 'sports',
     title: 'Mass Gathering',
     imageSrc: '/mass2.JPG',
+    thumbnailSrc: '/thumbs/mass2.JPG',
     description: 'A meaningful gathering of students during a special school occasion.',
   },
   {
@@ -45,6 +50,7 @@ const galleryItems = [
     category: 'graduation',
     title: 'Community Worship',
     imageSrc: '/mass3.JPG',
+    thumbnailSrc: '/thumbs/mass3.JPG',
     description: 'A peaceful moment of worship and fellowship at school.',
   },
   {
@@ -52,6 +58,7 @@ const galleryItems = [
     category: 'events',
     title: 'Choir Performance',
     imageSrc: '/choir1.JPG',
+    thumbnailSrc: '/thumbs/choir1.JPG',
     description: 'The school choir performing with confidence and joy.',
   },
   {
@@ -59,6 +66,7 @@ const galleryItems = [
     category: 'boarding',
     title: 'Choir Celebration',
     imageSrc: '/choir2.JPG',
+    thumbnailSrc: '/thumbs/choir2.JPG',
     description: 'A joyful choir moment celebrating music and togetherness.',
   },
   {
@@ -66,6 +74,7 @@ const galleryItems = [
     category: 'sports',
     title: 'Sportswear Display',
     imageSrc: '/sportsWear1.JPG',
+    thumbnailSrc: '/thumbs/sportsWear1.JPG',
     description: 'Students proudly showcasing their sportswear and team spirit.',
   },
   {
@@ -73,6 +82,7 @@ const galleryItems = [
     category: 'sports',
     title: 'Athletic Preparation',
     imageSrc: '/sportsWear2.JPG',
+    thumbnailSrc: '/thumbs/sportsWear2.JPG',
     description: 'A lively moment of preparation and energy before sports activities.',
   },
   {
@@ -80,6 +90,7 @@ const galleryItems = [
     category: 'classrooms',
     title: 'Focused Study Session',
     imageSrc: '/class2.JPG',
+    thumbnailSrc: '/thumbs/class2.JPG',
     description: 'Students engaged in focused study and academic concentration.',
   },
   {
@@ -87,6 +98,7 @@ const galleryItems = [
     category: 'classrooms',
     title: 'Interactive Classroom',
     imageSrc: '/class3.JPG',
+    thumbnailSrc: '/thumbs/class3.JPG',
     description: 'A lively classroom scene encouraging participation and curiosity.',
   },
   {
@@ -94,6 +106,7 @@ const galleryItems = [
     category: 'classrooms',
     title: 'Academic Excellence',
     imageSrc: '/class4.JPG',
+    thumbnailSrc: '/thumbs/class4.JPG',
     description: 'A classroom setting that reflects discipline, focus, and learning.',
   },
   {
@@ -101,6 +114,7 @@ const galleryItems = [
     category: 'campus',
     title: 'Cultural Celebration',
     imageSrc: '/cullture1.JPG',
+    thumbnailSrc: '/thumbs/cullture1.JPG',
     description: 'A vibrant cultural showcase celebrating heritage and creativity.',
   },
   {
@@ -108,6 +122,7 @@ const galleryItems = [
     category: 'campus',
     title: 'Traditional Festivity',
     imageSrc: '/culture2.JPG',
+    thumbnailSrc: '/thumbs/culture2.JPG',
     description: 'Students celebrating culture with color, music, and tradition.',
   },
   {
@@ -115,6 +130,7 @@ const galleryItems = [
     category: 'campus',
     title: 'School Team 1',
     imageSrc: '/team1.JPG',
+    thumbnailSrc: '/thumbs/team1.JPG',
     description: 'A memorable team photo featuring students together on campus.',
   },
   {
@@ -122,6 +138,7 @@ const galleryItems = [
     category: 'campus',
     title: 'School Team 2',
     imageSrc: '/team2.JPG',
+    thumbnailSrc: '/thumbs/team2.JPG',
     description: 'A lively team moment captured during a school activity.',
   },
   {
@@ -129,6 +146,7 @@ const galleryItems = [
     category: 'campus',
     title: 'School Team 3',
     imageSrc: '/team3.JPG',
+    thumbnailSrc: '/thumbs/team3.JPG',
     description: 'Students proudly sharing a special team memory.',
   },
 ];
@@ -206,9 +224,12 @@ export function GallerySection() {
                 >
                   {useImage ? (
                     <Image
-                      src={imageSrc}
+                      src={item.thumbnailSrc ?? imageSrc}
                       alt={item.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index === 0}
+                      quality={60}
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   ) : (
@@ -245,6 +266,8 @@ export function GallerySection() {
                   src={selectedItem.imageSrc}
                   alt={selectedItem.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 75vw"
+                  priority
                   className="object-contain"
                 />
               </div>
