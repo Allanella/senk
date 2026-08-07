@@ -111,8 +111,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-gold" />
-                <a href="tel:+256701939452" className="hover:text-gold transition-colors">
-                  +256 701 939452
+                <a href="tel:+256785639406" className="hover:text-gold transition-colors">
+                  +256 785 639406
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -228,7 +228,7 @@ export function Footer() {
             <div className="text-xs text-primary-foreground/60">
               Developed by{' '}
               <a
-                href="https://wa.me/256701939452?text=Hello%20Allan,%20I%20got%20your%20contact%20from%20the%20SENK%20website."
+                href="https://wa.me/256700966715?text=Hello%20Allan,%20I%20got%20your%20contact%20from%20the%20SENK%20website."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gold hover:underline font-medium"
@@ -237,12 +237,19 @@ export function Footer() {
               </a>{' '}
               (
               <a
-                href="https://wa.me/256701939452?text=Hello%20Allan,%20I%20got%20your%20contact%20from%20the%20SENK%20website."
+                href="https://wa.me/256700966715?text=Hello%20Allan,%20I%20got%20your%20contact%20from%20the%20SENK%20website."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gold transition-colors"
               >
-                +256 701 939452
+                +256 700 966715
+              </a>
+              {' / '}
+              <a
+                href="tel:+256785639406"
+                className="hover:text-gold transition-colors"
+              >
+                +256 785 639406
               </a>
               )
             </div>
