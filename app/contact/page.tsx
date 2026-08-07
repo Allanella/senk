@@ -12,6 +12,8 @@ import {
   Send,
   Navigation,
   MessageCircle,
+  Building2,
+  Headphones,
 } from 'lucide-react'
 import { schoolInfo } from '@/lib/data'
 
@@ -22,10 +24,16 @@ export const metadata: Metadata = {
 
 const contactCards = [
   {
-    icon: Phone,
-    title: 'Phone',
-    content: schoolInfo.phone,
-    link: `tel:${schoolInfo.phone}`,
+    icon: Headphones,
+    title: 'General Inquiries',
+    content: '+256 752 838370',
+    link: 'tel:+256752838370',
+  },
+  {
+    icon: Building2,
+    title: 'Administration Direct',
+    content: '+256 772 481321',
+    link: 'tel:+256772481321',
   },
   {
     icon: Mail,
@@ -39,21 +47,22 @@ const contactCards = [
     content: schoolInfo.location,
     link: '#map',
   },
-  {
-    icon: Clock,
-    title: 'Working Hours',
-    content: 'Mon-Fri: 8:00 AM - 5:00 PM',
-    link: '#',
-  },
 ]
 
 const quickContacts = [
   {
-    method: 'Call Us',
-    description: 'Direct line to our admissions office',
-    action: `Call: ${schoolInfo.phone}`,
-    href: `tel:${schoolInfo.phone}`,
-    icon: Phone,
+    method: 'General Inquiries',
+    description: 'Direct line for all general questions & support',
+    action: 'Call: +256 752 838370',
+    href: 'tel:+256752838370',
+    icon: Headphones,
+  },
+  {
+    method: 'Administration Direct',
+    description: 'Direct line to school administration',
+    action: 'Call: +256 772 481321',
+    href: 'tel:+256772481321',
+    icon: Building2,
   },
   {
     method: 'Email Us',
@@ -66,7 +75,7 @@ const quickContacts = [
     method: 'WhatsApp',
     description: 'Quick messaging and real-time responses',
     action: 'Chat: +256 (0) 701 939452',
-    href: '#',
+    href: 'https://wa.me/256701939452',
     icon: MessageCircle,
   },
 ]
@@ -218,9 +227,9 @@ export default function ContactPage() {
 
       {/* Quick Contact Methods */}
       <section className="section-padding bg-card">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Quick Contact Methods</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickContacts.map((contact, index) => {
               const Icon = contact.icon
               return (
@@ -233,9 +242,9 @@ export default function ContactPage() {
                   <div className="w-12 h-12 rounded-full bg-gold/20 text-gold flex items-center justify-center mx-auto mb-4 group-hover:bg-gold group-hover:text-primary-foreground transition-colors duration-300">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{contact.method}</h3>
+                  <h3 className="text-lg font-bold mb-2">{contact.method}</h3>
                   <p className="text-primary-foreground/75 text-sm mb-4">{contact.description}</p>
-                  <p className="font-medium text-gold">{contact.action}</p>
+                  <p className="font-medium text-gold text-sm">{contact.action}</p>
                 </a>
               )
             })}
