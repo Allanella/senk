@@ -65,7 +65,7 @@ const quickContacts = [
   {
     method: 'WhatsApp',
     description: 'Quick messaging and real-time responses',
-    action: 'Chat: +256 (0) 784 XXXXXX',
+    action: 'Chat: +256 (0) 701 939452',
     href: '#',
     icon: MessageCircle,
   },

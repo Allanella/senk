@@ -47,7 +47,7 @@ export function WelcomeSection() {
 
             {/* Signature Placeholder */}
             <div className="pt-4">
-              <div className="text-xl font-bold text-primary">Mr. [Head Teacher Name]</div>
+              <div className="text-xl font-bold text-primary">Mr. Mugerwa John Bosco</div>
               <p className="text-sm text-secondary">
                 Head Teacher, St. Elizabeth Senior Secondary School Nkoowe
               </p>

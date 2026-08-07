@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight, Phone, Mail, MessageSquare, Send, Download, HelpCircle } from 'lucide-react'
 
 const secondaryCards = [
@@ -36,7 +37,7 @@ export function CTASection() {
           {/* Background Gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary" />
 
-          {/* Ambient glow, replacing the old grid pattern with something warmer */}
+          {/* Ambient glow */}
           <div
             aria-hidden
             className="pointer-events-none absolute -top-24 -right-16 w-80 h-80 rounded-full bg-gold/20 blur-3xl"
@@ -48,6 +49,17 @@ export function CTASection() {
 
           {/* Content */}
           <div className="relative z-10 p-8 md:p-16 text-center text-white">
+            {/* School Crest / Badge */}
+            <div className="relative w-20 h-20 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-gold/40 shadow-xl bg-white flex items-center justify-center">
+              <Image
+                src="/badge.JPG"
+                alt="SENK School Badge"
+                fill
+                sizes="80px"
+                className="object-contain p-1"
+              />
+            </div>
+
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance leading-tight">
               Join the SENK Family Today
             </h2>
@@ -79,13 +91,13 @@ export function CTASection() {
             {/* Contact Quick Links */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center text-white/90">
               <a
-                href="tel:+256784XXXXXX"
+                href="tel:256700966715"
                 className="flex items-center gap-2 hover:text-gold transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span>Call Us</span>
+                <span>Call Us (0700966715)</span>
               </a>
               <a
                 href="mailto:info@senk.edu.ug"
@@ -97,13 +109,15 @@ export function CTASection() {
                 <span>Email Us</span>
               </a>
               <a
-                href="https://wa.me/256784XXXXXX"
+                href="https://wa.me/256700966715?text=Hello%20SENK%20Admissions,%20I%20would%20like%20to%20make%20an%20inquiry."
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-gold transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all">
                   <MessageSquare className="w-5 h-5" />
                 </div>
-                <span>WhatsApp</span>
+                <span>WhatsApp Us</span>
               </a>
             </div>
           </div>

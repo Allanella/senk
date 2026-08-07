@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { schoolInfo, footerLinks } from '@/lib/data';
 
@@ -86,8 +87,14 @@ export function Footer() {
           {/* School Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-full bg-gold flex items-center justify-center ring-2 ring-gold/30 ring-offset-2 ring-offset-primary shadow-md">
-                <span className="text-primary font-bold text-lg">S</span>
+              <div className="relative w-12 h-12 rounded-full overflow-hidden ring-2 ring-gold/30 ring-offset-2 ring-offset-primary shadow-md bg-white">
+                <Image
+                  src="/badge.JPG"
+                  alt={`${schoolInfo.shortName} Badge`}
+                  fill
+                  sizes="48px"
+                  className="object-contain p-0.5"
+                />
               </div>
               <div>
                 <h3 className="font-bold text-lg">{schoolInfo.shortName}</h3>
@@ -104,8 +111,8 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-gold" />
-                <a href={`tel:${schoolInfo.phone}`} className="hover:text-gold transition-colors">
-                  {schoolInfo.phone}
+                <a href="tel:+256701939452" className="hover:text-gold transition-colors">
+                  +256 701 939452
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -213,9 +220,32 @@ export function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          {/* Copyright */}
-          <div className="text-sm text-primary-foreground/80">
-            © {new Date().getFullYear()} {schoolInfo.name}. All rights reserved.
+          {/* Copyright & Developer Credit */}
+          <div className="text-sm text-primary-foreground/80 text-center md:text-left space-y-1">
+            <div>
+              © {new Date().getFullYear()} {schoolInfo.name}. All rights reserved.
+            </div>
+            <div className="text-xs text-primary-foreground/60">
+              Developed by{' '}
+              <a
+                href="https://wa.me/256701939452?text=Hello%20Allan,%20I%20got%20your%20contact%20from%20the%20SENK%20website."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:underline font-medium"
+              >
+                Baliddawa Allan
+              </a>{' '}
+              (
+              <a
+                href="https://wa.me/256701939452?text=Hello%20Allan,%20I%20got%20your%20contact%20from%20the%20SENK%20website."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors"
+              >
+                +256 701 939452
+              </a>
+              )
+            </div>
           </div>
 
           {/* Social Links */}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { VisionMissionSection } from '@/components/vision-mission-section'
@@ -62,19 +63,22 @@ const keyFacts = [
 
 const leadership = [
   {
-    title: 'Principal',
-    name: 'Dr. [Principal Name]',
+    title: 'Head Teacher',
+    name: 'Mr. Mugerwa John Bosco',
     bio: 'Visionary leader with decades of experience in secondary education',
+    image: '/hm.JPG',
   },
   {
-    title: 'Deputy Principal (Academics)',
-    name: '[Name]',
+    title: 'Deputy Head Teacher (Academics)',
+    name: 'Habimaana Alexander',
     bio: 'Oversees curriculum implementation and academic excellence',
+    image: '/habimaana-alexander.jpeg',
   },
   {
-    title: 'Deputy Principal (Discipline)',
-    name: '[Name]',
+    title: 'Deputy Head Teacher (Discipline)',
+    name: 'Hajome Denis',
     bio: 'Ensures safe, disciplined learning environment',
+    image: '/hajome-denis.jpeg',
   },
 ]
 
@@ -82,7 +86,7 @@ function initialsOf(name: string) {
   const cleaned = name.replace(/[\[\]]/g, '').trim()
   const parts = cleaned.split(' ').filter(Boolean)
   const letters = parts
-    .filter((p) => p !== 'Dr.')
+    .filter((p) => p !== 'Mr.' && p !== 'Dr.' && p !== 'Mrs.' && p !== 'Ms.')
     .slice(0, 2)
     .map((p) => p[0])
   return letters.join('').toUpperCase() || 'SE'
@@ -95,7 +99,7 @@ export default function AboutPage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden section-padding bg-gradient-to-b from-primary to-primary-dark text-primary-foreground pt-32 pb-24">
-        {/* Ambient glow, warm rather than flat */}
+        {/* Ambient glow */}
         <div
           aria-hidden
           className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gold/25 blur-3xl"
@@ -118,7 +122,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Scalloped edge, tying into the "credentials plaque" motif used below */}
+        {/* Scalloped edge */}
         <svg
           aria-hidden
           className="absolute bottom-0 left-0 w-full text-background fill-current"
@@ -135,9 +139,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-10">
             <div className="relative card-premium p-8 md:p-10 overflow-hidden animate-fade-in-up">
-              {/* Manuscript-style accent rule */}
               <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gold via-gold/60 to-transparent" />
-              {/* Faint watermark, echoing the hero crest without competing with it */}
               <SchoolCrest className="absolute -right-6 -bottom-6 w-40 h-40 text-gold opacity-[0.06]" />
               <div className="pl-4 relative">
                 <div className="inline-block px-3 py-1 rounded-full bg-gold/15 text-gold text-xs font-semibold tracking-wide uppercase mb-4">
@@ -158,7 +160,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Key Facts — styled as a credentials plaque rather than a plain stat grid */}
+            {/* Key Facts */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {keyFacts.map((fact, index) => {
                 const Icon = fact.icon
@@ -201,12 +203,24 @@ export default function AboutPage() {
             {leadership.map((staff, index) => (
               <div
                 key={index}
-                className="relative card-premium text-center pt-10 pb-8 px-6 group hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
+                className="relative card-premium text-center pt-16 pb-8 px-6 group hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg font-bold ring-4 ring-card group-hover:ring-gold/40 transition-all duration-300">
-                  {initialsOf(staff.name)}
-                </div>
+                {staff.image ? (
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full overflow-hidden ring-4 ring-card group-hover:ring-gold/40 transition-all duration-300 shadow-lg bg-muted">
+                    <Image
+                      src={staff.image}
+                      alt={staff.name}
+                      fill
+                      sizes="112px"
+                      className="object-cover object-top hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ) : (
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold ring-4 ring-card group-hover:ring-gold/40 transition-all duration-300 shadow-lg">
+                    {initialsOf(staff.name)}
+                  </div>
+                )}
                 <div className="text-sm font-bold text-gold uppercase tracking-wide mb-1">{staff.title}</div>
                 <h3 className="text-xl font-bold text-foreground mb-2">{staff.name}</h3>
                 <p className="text-secondary text-sm leading-relaxed">{staff.bio}</p>
