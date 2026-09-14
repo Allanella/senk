@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Phone, Mail, MessageSquare, Send, Download, HelpCircle } from 'lucide-react'
+import { schoolInfo } from '@/lib/data'
 
 const secondaryCards = [
   {
@@ -91,16 +92,16 @@ export function CTASection() {
             {/* Contact Quick Links */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center text-white/90">
               <a
-                href="tel:256700966715"
+                href={`tel:${schoolInfo.phone.replace(/[^+\d]/g, '')}`}
                 className="flex items-center gap-2 hover:text-gold transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span>Call Us tel:+256701939452</span>
+                <span>Call Us {schoolInfo.phone}</span>
               </a>
               <a
-                href="mailto:info@senk.edu.ug"
+                href={`mailto:${schoolInfo.email}`}
                 className="flex items-center gap-2 hover:text-gold transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all">
@@ -109,7 +110,7 @@ export function CTASection() {
                 <span>Email Us</span>
               </a>
               <a
-                href="https://wa.me/256700966715?text=Hello%20SENK%20Admissions,%20I%20would%20like%20to%20make%20an%20inquiry."
+                href={`https://wa.me/${schoolInfo.whatsapp.replace(/[^+\d]/g, '')}?text=Hello%20SENK%20Admissions,%20I%20would%20like%20to%20make%20an%20inquiry.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-gold transition-colors group"
