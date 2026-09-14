@@ -14,6 +14,9 @@ import {
   MessageCircle,
   Building2,
   Headphones,
+  Video,
+  Share2,
+  Globe,
 } from 'lucide-react'
 import { schoolInfo } from '@/lib/data'
 
@@ -77,6 +80,27 @@ const quickContacts = [
     action: 'Chat: +256 (0) 701 939452',
     href: 'https://wa.me/256701939452',
     icon: MessageCircle,
+  },
+  {
+    method: 'YouTube',
+    description: 'Watch our latest school events and updates',
+    action: 'Visit Channel',
+    href: 'https://www.youtube.com/@st.elizabethseniorsecondarysch',
+    icon: Video,
+  },
+  {
+    method: 'Facebook',
+    description: 'Connect with our community and stay updated',
+    action: 'Follow Page',
+    href: 'https://www.facebook.com/share/1d7mnFeGZp/',
+    icon: Share2,
+  },
+  {
+    method: 'TikTok',
+    description: 'Catch our fun moments and short clips',
+    action: 'Watch on TikTok',
+    href: 'https://www.tiktok.com/@st.elizabethsssnkooowe2?is_from_webapp=1&sender_device=pc',
+    icon: Globe,
   },
 ]
 
@@ -225,10 +249,10 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Quick Contact Methods */}
+      {/* Quick Contact & Social Methods */}
       <section className="section-padding bg-card">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Quick Contact Methods</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Quick Contact & Social Channels</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickContacts.map((contact, index) => {
               const Icon = contact.icon
@@ -236,15 +260,19 @@ export default function ContactPage() {
                 <a
                   key={index}
                   href={contact.href}
-                  className="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark text-primary-foreground rounded-xl p-6 card-premium text-center group hover:-translate-y-1.5 transition-all duration-300 animate-fade-in-up"
+                  target={contact.href.startsWith('http') ? '_blank' : undefined}
+                  rel={contact.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="relative overflow-hidden bg-gradient-to-br from-primary to-primary-dark text-primary-foreground rounded-xl p-6 card-premium text-center group hover:-translate-y-1.5 transition-all duration-300 animate-fade-in-up flex flex-col justify-between"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-gold/20 text-gold flex items-center justify-center mx-auto mb-4 group-hover:bg-gold group-hover:text-primary-foreground transition-colors duration-300">
-                    <Icon className="w-6 h-6" />
+                  <div>
+                    <div className="w-12 h-12 rounded-full bg-gold/20 text-gold flex items-center justify-center mx-auto mb-4 group-hover:bg-gold group-hover:text-primary-foreground transition-colors duration-300">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-lg font-bold mb-2">{contact.method}</h3>
+                    <p className="text-primary-foreground/75 text-sm mb-4">{contact.description}</p>
                   </div>
-                  <h3 className="text-lg font-bold mb-2">{contact.method}</h3>
-                  <p className="text-primary-foreground/75 text-sm mb-4">{contact.description}</p>
-                  <p className="font-medium text-gold text-sm">{contact.action}</p>
+                  <p className="font-medium text-gold text-sm mt-2">{contact.action}</p>
                 </a>
               )
             })}

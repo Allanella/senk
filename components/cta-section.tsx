@@ -97,7 +97,7 @@ export function CTASection() {
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span>Call Us (0700966715)</span>
+                <span>Call Us tel:+256701939452</span>
               </a>
               <a
                 href="mailto:info@senk.edu.ug"
