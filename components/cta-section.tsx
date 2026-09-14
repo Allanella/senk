@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Phone, Mail, MessageSquare, Send, Download, HelpCircle } from 'lucide-react'
@@ -30,6 +28,8 @@ const secondaryCards = [
 ]
 
 export function CTASection() {
+  const phoneNumber = '+256 701 939452'
+
   return (
     <section className="section-padding bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -90,15 +90,15 @@ export function CTASection() {
             <div className="w-16 h-px bg-white/25 mx-auto mb-10" />
 
             {/* Contact Quick Links */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center text-white/90">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center text-white/95">
               <a
-                href={`tel:${schoolInfo.phone.replace(/[^+\d]/g, '')}`}
+                href={`tel:${phoneNumber.replace(/[^+\d]/g, '')}`}
                 className="flex items-center gap-2 hover:text-gold transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-primary transition-all">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span>Call Us {schoolInfo.phone}</span>
+                <span>Call Us {phoneNumber}</span>
               </a>
               <a
                 href={`mailto:${schoolInfo.email}`}
@@ -110,7 +110,7 @@ export function CTASection() {
                 <span>Email Us</span>
               </a>
               <a
-                href={`https://wa.me/${schoolInfo.whatsapp.replace(/[^+\d]/g, '')}?text=Hello%20SENK%20Admissions,%20I%20would%20like%20to%20make%20an%20inquiry.`}
+                href={`https://wa.me/${phoneNumber.replace(/[^+\d]/g, '')}?text=Hello%20SENK%20Admissions,%20I%20would%20like%20to%20make%20an%20inquiry.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-gold transition-colors group"
