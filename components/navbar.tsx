@@ -167,8 +167,8 @@ export function Navbar() {
         {/* Mobile Menu */}
         <div
           className={cn(
-            'lg:hidden overflow-hidden transition-all duration-300 ease-in-out',
-            isOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'
+            'lg:hidden overflow-y-auto transition-all duration-300 ease-in-out',
+            isOpen ? 'max-h-[calc(100vh-4rem)] opacity-100 pb-6' : 'max-h-0 opacity-0'
           )}
         >
           <div className="py-4 border-t border-border/60">

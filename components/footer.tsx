@@ -125,6 +125,22 @@ export function Footer() {
                 </a>
               </div>
             </div>
+
+            {/* Social Links placed here in School Info / Column 1 */}
+            <div className="flex gap-3 pt-2">
+              {footerLinks.social.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center text-primary-foreground hover:bg-gold hover:text-primary hover:-translate-y-0.5 transition-all"
+                  aria-label={social.name}
+                >
+                  {iconMap[social.name]}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -253,22 +269,6 @@ export function Footer() {
               </a>
               )
             </div>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex gap-4">
-            {footerLinks.social.map((social) => (
-              <a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center text-primary-foreground hover:bg-gold hover:text-primary hover:-translate-y-0.5 transition-all"
-                aria-label={social.name}
-              >
-                {iconMap[social.name]}
-              </a>
-            ))}
           </div>
 
           {/* Policies */}
