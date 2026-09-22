@@ -7,7 +7,7 @@ import { GraduationCap, FlaskConical, Award } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Academics - SENK | O-Level & A-Level Programs',
-  description: 'Explore our rigorous academic programs, from Ordinary Level to Advanced Level, with subjects, skills training, and UNEB exam preparation.',
+  description: 'Explore our rigorous academic programs, from Ordinary Level to Advanced Level, featuring Swahili, History & Political Education, Physical Education, core sciences, and UNEB exam preparation.',
 }
 
 /** Hexagonal distinction badge with a star — an academic-medal counterpart to the crest used elsewhere. */
@@ -42,13 +42,13 @@ const infoItems = [
     icon: GraduationCap,
   },
   {
-    title: 'Practical Learning',
-    description: 'Hands-on laboratory work and real-world applications integrated into the curriculum',
+    title: 'Practical & Holistic Learning',
+    description: 'Hands-on laboratory work, physical education, language fluency (Swahili), and civic development integrated into the curriculum',
     icon: FlaskConical,
   },
   {
     title: 'UNEB Excellence',
-    description: 'Curriculum aligned with UNEB standards, with experienced examiners on staff',
+    description: 'Curriculum aligned with UNEB standards, covering History & Political Education, sciences, humanities, and arts with experienced examiners on staff',
     icon: Award,
   },
 ]
@@ -84,7 +84,7 @@ export default function AcademicsPage() {
             Rigorous &amp; Comprehensive Academic Programs
           </h1>
           <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
-            SENK offers a carefully designed curriculum that combines academic rigor with practical skills, preparing students for UNEB success and beyond.
+            SENK offers a robust curriculum covering core sciences, humanities, Swahili, History &amp; Political Education, Physical Education, and practical skills for complete student development.
           </p>
         </div>
 

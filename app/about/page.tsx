@@ -183,10 +183,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <VisionMissionSection />
-      <PillarsSection />
-
-      {/* Staff & Leadership */}
+      {/* Staff & Leadership - Placed immediately after Our Journey */}
       <section className="section-padding bg-card">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in-down">
@@ -239,6 +236,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <VisionMissionSection />
+      <PillarsSection />
 
       <Footer />
     </main>
