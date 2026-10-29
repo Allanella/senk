@@ -1,0 +1,23 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  web-deploy:
+    name: Deploy Website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get latest code
+        uses: actions/checkout@v4
+
+      - name: Sync Files to cPanel
+        uses: SamKirsch/cpanel-deploy-action@v1
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_path: './*'
+          remote_path: '/public_html/'
