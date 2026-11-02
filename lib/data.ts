@@ -207,24 +207,6 @@ export const facilities = [
     description: 'Well-equipped labs for Physics, Chemistry, and Biology',
     features: ['Modern equipment', 'Safety standards', 'Hands-on learning'],
   },
-  {
-    name: 'Boarding Facilities',
-    capacity: 'Over 300 students',
-    description: 'Safe, comfortable, and hygienic accommodation',
-    features: ['24-hour security', 'Quality meals', 'Supportive environment'],
-  },
-  {
-    name: 'Dispensary',
-    capacity: 'Medical services',
-    description: 'Professional healthcare and support',
-    features: ['Trained staff', 'Emergency care', 'Health counseling'],
-  },
-  {
-    name: 'Dining Hall',
-    capacity: '600+ capacity',
-    description: 'Nutritious meals and excellent catering',
-    features: ['Balanced diet', 'Hygiene standards', 'Special diets'],
-  },
 ]
 
 // Sports & Clubs
