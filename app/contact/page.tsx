@@ -29,8 +29,8 @@ const contactCards = [
   {
     icon: Headphones,
     title: 'General Inquiries',
-    content: '+256 752 838370',
-    link: 'tel:+256752838370',
+    content: '+256 753 507111',
+    link: 'tel:+256753507111',
   },
   {
     icon: Building2,
@@ -56,8 +56,8 @@ const quickContacts = [
   {
     method: 'General Inquiries',
     description: 'Direct line for all general questions & support',
-    action: 'Call: +256 752 838370',
-    href: 'tel:+256752838370',
+    action: 'Call: +256 753 507111',
+    href: 'tel:+256753507111',
     icon: Headphones,
   },
   {
