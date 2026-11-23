@@ -29,8 +29,8 @@ const contactCards = [
   {
     icon: Headphones,
     title: 'General Inquiries',
-    content: '+256 753 507111',
-    link: 'tel:+256753507111',
+    content: schoolInfo.phone,
+    link: `tel:${schoolInfo.phone.replace(/\s/g, '')}`,
   },
   {
     icon: Building2,
@@ -56,8 +56,8 @@ const quickContacts = [
   {
     method: 'General Inquiries',
     description: 'Direct line for all general questions & support',
-    action: 'Call: +256 753 507111',
-    href: 'tel:+256753507111',
+    action: `Call: ${schoolInfo.phone}`,
+    href: `tel:${schoolInfo.phone.replace(/\s/g, '')}`,
     icon: Headphones,
   },
   {

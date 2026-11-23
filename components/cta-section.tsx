@@ -28,7 +28,7 @@ const secondaryCards = [
 ]
 
 export function CTASection() {
-  const phoneNumber = '+256 701 939452'
+  const phoneNumber = schoolInfo.phone
 
   return (
     <section className="section-padding bg-background">

@@ -7,7 +7,7 @@ export const schoolInfo = {
   registrationNo: 'PSS/S/126',
   location: 'Nkoowe, Uganda',
   email: 'info@senk.edu.ug',
-  phone: '+256 701 939452',
+  phone: '0753 507111',
   whatsapp: '+256701939452',
   vision: 'To be a center of excellence providing holistic education that shapes spiritually mature, academically excellent, disciplined, and innovative leaders who impact society positively.',
   mission: 'To provide quality, affordable Catholic education that develops students intellectually, morally, physically, and spiritually, preparing them for success in higher education and meaningful contribution to society.',
