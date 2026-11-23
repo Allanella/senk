@@ -72,29 +72,35 @@ export function FacilitiesSection() {
                 {/* Image - Left or Right */}
                 {shouldShowImage ? (
                   <div
-                    className={`group relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-lg ${
+                    className={`group relative aspect-[4/3] md:aspect-auto md:h-[380px] rounded-2xl overflow-hidden shadow-lg ring-1 ring-border/60 ${
                       isEven ? '' : 'md:order-2'
                     }`}
                   >
                     {facility.name === 'Computer Laboratory' ? (
                       <Image
-                        src="/lab1.JPG"
+                        src="/lab1.webp"
                         alt={facility.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading="lazy"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : facility.name === 'Science Laboratories' ? (
                       <Image
-                        src="/scienceLab.JPG"
+                        src="/scienceLab.webp"
                         alt={facility.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading="lazy"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : facility.name === 'Digital Library' ? (
                       <Image
-                        src="/library.JPG"
+                        src="/library.webp"
                         alt={facility.name}
                         fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        loading="lazy"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (

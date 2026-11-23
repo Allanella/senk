@@ -30,7 +30,7 @@ export function Hero() {
       pulse: number;
     }> = [];
 
-    for (let i = 0; i < 55; i++) {
+    for (let i = 0; i < 28; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -123,10 +123,11 @@ export function Hero() {
       {/* Hero Background Image — treated for mood + contrast */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/eliza.JPG"
+          src="/eliza.webp"
           alt="St. Eliza Nkoowe campus"
           fill
           priority
+          sizes="100vw"
           className="object-cover scale-105 animate-ken-burns [filter:saturate(1.15)_contrast(1.08)_brightness(0.85)]"
         />
         {/* Duotone brand-color wash, multiplied over the photo */}

@@ -66,7 +66,7 @@ const leadership = [
     title: 'Head Teacher',
     name: 'Mr. Mugerwa John Bosco',
     bio: 'Visionary leader with decades of experience in secondary education',
-    image: '/hm.JPG',
+    image: '/hm.webp',
   },
   {
     title: 'Deputy Head Teacher (Academics)',

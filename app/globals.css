@@ -387,6 +387,8 @@
   /* Section Spacing */
   .section-padding {
     @apply py-16 md:py-24 lg:py-32;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 720px;
   }
 
   /* Gradient Text */

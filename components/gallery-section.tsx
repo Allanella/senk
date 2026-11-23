@@ -4,149 +4,138 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { X } from 'lucide-react';
 
+function galleryAsset(name: string) {
+  return {
+    imageSrc: `/${name}.webp`,
+    thumbnailSrc: `/thumbs/${name}.webp`,
+  }
+}
+
 const galleryItems = [
   {
     id: 1,
     category: 'campus',
     title: 'Campus View',
-    imageSrc: '/parade1.JPG',
-    thumbnailSrc: '/thumbs/parade1.JPG',
+    ...galleryAsset('parade1'),
     description: 'A vibrant school parade captured on campus.',
   },
   {
     id: 2,
     category: 'classrooms',
     title: 'School Parade',
-    imageSrc: '/parade2.JPG',
-    thumbnailSrc: '/thumbs/parade2.JPG',
+    ...galleryAsset('parade2'),
     description: 'Students and staff gathering with pride during a memorable event.',
   },
   {
     id: 2.5,
     category: 'classrooms',
     title: 'Classroom Learning',
-    imageSrc: '/class1.JPG',
-    thumbnailSrc: '/thumbs/class1.JPG',
+    ...galleryAsset('class1'),
     description: 'A bright classroom environment where learning is actively taking place.',
   },
   {
     id: 3,
     category: 'laboratories',
     title: 'School Mass',
-    imageSrc: '/mass1.JPG',
-    thumbnailSrc: '/thumbs/mass1.JPG',
+    ...galleryAsset('mass1'),
     description: 'Students participating in a joyful school mass celebration.',
   },
   {
     id: 4,
     category: 'sports',
     title: 'Mass Gathering',
-    imageSrc: '/mass2.JPG',
-    thumbnailSrc: '/thumbs/mass2.JPG',
+    ...galleryAsset('mass2'),
     description: 'A meaningful gathering of students during a special school occasion.',
   },
   {
     id: 5,
     category: 'graduation',
     title: 'Community Worship',
-    imageSrc: '/mass3.JPG',
-    thumbnailSrc: '/thumbs/mass3.JPG',
+    ...galleryAsset('mass3'),
     description: 'A peaceful moment of worship and fellowship at school.',
   },
   {
     id: 6,
     category: 'events',
     title: 'Choir Performance',
-    imageSrc: '/choir1.JPG',
-    thumbnailSrc: '/thumbs/choir1.JPG',
+    ...galleryAsset('choir1'),
     description: 'The school choir performing with confidence and joy.',
   },
   {
     id: 7,
     category: 'boarding',
     title: 'Choir Celebration',
-    imageSrc: '/choir2.JPG',
-    thumbnailSrc: '/thumbs/choir2.JPG',
+    ...galleryAsset('choir2'),
     description: 'A joyful choir moment celebrating music and togetherness.',
   },
   {
     id: 8,
     category: 'sports',
     title: 'Sportswear Display',
-    imageSrc: '/sportsWear1.JPG',
-    thumbnailSrc: '/thumbs/sportsWear1.JPG',
+    ...galleryAsset('sportsWear1'),
     description: 'Students proudly showcasing their sportswear and team spirit.',
   },
   {
     id: 9,
     category: 'sports',
     title: 'Athletic Preparation',
-    imageSrc: '/sportsWear2.JPG',
-    thumbnailSrc: '/thumbs/sportsWear2.JPG',
+    ...galleryAsset('sportsWear2'),
     description: 'A lively moment of preparation and energy before sports activities.',
   },
   {
     id: 10,
     category: 'classrooms',
     title: 'Focused Study Session',
-    imageSrc: '/class2.JPG',
-    thumbnailSrc: '/thumbs/class2.JPG',
+    ...galleryAsset('class2'),
     description: 'Students engaged in focused study and academic concentration.',
   },
   {
     id: 11,
     category: 'classrooms',
     title: 'Interactive Classroom',
-    imageSrc: '/class3.JPG',
-    thumbnailSrc: '/thumbs/class3.JPG',
+    ...galleryAsset('class3'),
     description: 'A lively classroom scene encouraging participation and curiosity.',
   },
   {
     id: 12,
     category: 'classrooms',
     title: 'Academic Excellence',
-    imageSrc: '/class4.JPG',
-    thumbnailSrc: '/thumbs/class4.JPG',
+    ...galleryAsset('class4'),
     description: 'A classroom setting that reflects discipline, focus, and learning.',
   },
   {
     id: 13,
     category: 'campus',
     title: 'Cultural Celebration',
-    imageSrc: '/cullture1.JPG',
-    thumbnailSrc: '/thumbs/cullture1.JPG',
+    ...galleryAsset('cullture1'),
     description: 'A vibrant cultural showcase celebrating heritage and creativity.',
   },
   {
     id: 14,
     category: 'campus',
     title: 'Traditional Festivity',
-    imageSrc: '/culture2.JPG',
-    thumbnailSrc: '/thumbs/culture2.JPG',
+    ...galleryAsset('culture2'),
     description: 'Students celebrating culture with color, music, and tradition.',
   },
   {
     id: 15,
     category: 'campus',
     title: 'School Team 1',
-    imageSrc: '/team1.JPG',
-    thumbnailSrc: '/thumbs/team1.JPG',
+    ...galleryAsset('team1'),
     description: 'A memorable team photo featuring students together on campus.',
   },
   {
     id: 16,
     category: 'campus',
     title: 'School Team 2',
-    imageSrc: '/team2.JPG',
-    thumbnailSrc: '/thumbs/team2.JPG',
+    ...galleryAsset('team2'),
     description: 'A lively team moment captured during a school activity.',
   },
   {
     id: 17,
     category: 'campus',
     title: 'School Team 3',
-    imageSrc: '/team3.JPG',
-    thumbnailSrc: '/thumbs/team3.JPG',
+    ...galleryAsset('team3'),
     description: 'Students proudly sharing a special team memory.',
   },
 ];
@@ -204,33 +193,36 @@ export function GallerySection() {
           ))}
         </div>
 
-        {/* Masonry Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-max">
+        {/* Responsive gallery grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {filtered.map((item, index) => {
             const useImage = Boolean(item.imageSrc);
             const imageSrc = item.imageSrc ?? '';
+            const isFeatured = index === 0 || index === 4;
 
             return (
               <div
                 key={item.id}
                 className={`relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 animate-fade-in-up ${
-                  index === 0 || index === 4 ? 'lg:col-span-2 lg:row-span-2' : ''
+                  isFeatured ? 'sm:col-span-2' : ''
                 }`}
-                style={{ animationDelay: `${(index % 3) * 0.1}s` }}
+                style={{ animationDelay: `${(index % 3) * 0.08}s` }}
                 onClick={() => setSelectedImage(item.id)}
               >
                 <div
-                  className={`relative ${index === 0 || index === 4 ? 'h-[400px]' : 'h-[250px]'}`}
+                  className={`relative bg-muted ${
+                    isFeatured ? 'aspect-[16/10] sm:aspect-[21/9]' : 'aspect-[4/3]'
+                  }`}
                 >
                   {useImage ? (
                     <Image
                       src={item.thumbnailSrc ?? imageSrc}
                       alt={item.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       priority={index === 0}
-                      quality={60}
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                   ) : (
                     <div className="absolute inset-0 flex items-center justify-center bg-muted/40 border-2 border-dashed border-border">
@@ -242,13 +234,13 @@ export function GallerySection() {
                   )}
                 </div>
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                {/* Overlay — always faintly visible on touch, stronger on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <div className="max-w-full">
                     <p className="text-white font-bold">{item.title}</p>
                     <p className="text-gold text-sm capitalize">{item.category}</p>
                     {item.description ? (
-                      <p className="text-white/90 text-sm mt-1 line-clamp-2">{item.description}</p>
+                      <p className="text-white/90 text-sm mt-1 line-clamp-2 hidden sm:block">{item.description}</p>
                     ) : null}
                   </div>
                 </div>
@@ -259,27 +251,38 @@ export function GallerySection() {
 
         {/* Lightbox Modal */}
         {selectedItem && (
-          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 animate-fade-in-down">
-            <div className="relative max-w-3xl w-full">
-              <div className="relative w-full h-[500px] rounded-lg overflow-hidden border-4 border-border bg-muted/40">
+          <div
+            className="fixed inset-0 bg-black/85 z-50 flex items-center justify-center p-3 sm:p-6 animate-fade-in-down"
+            onClick={() => setSelectedImage(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={selectedItem.title}
+          >
+            <div
+              className="relative max-w-4xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="relative w-full aspect-[4/3] max-h-[70vh] rounded-xl overflow-hidden border border-white/15 bg-black/40 shadow-2xl">
                 <Image
                   src={selectedItem.imageSrc}
                   alt={selectedItem.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 75vw"
+                  sizes="(max-width: 768px) 100vw, 900px"
                   priority
                   className="object-contain"
                 />
               </div>
-              <div className="mt-4 rounded-lg bg-background/90 px-4 py-3 text-white">
+              <div className="mt-3 rounded-xl bg-card/95 backdrop-blur-sm px-4 py-3 border border-border">
                 <p className="font-semibold text-foreground">{selectedItem.title}</p>
                 <p className="text-sm text-secondary mt-1">{selectedItem.description}</p>
               </div>
               <button
+                type="button"
                 onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center transition-colors"
+                className="absolute -top-2 -right-2 sm:top-3 sm:right-3 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 flex items-center justify-center transition-colors border border-white/20"
+                aria-label="Close gallery preview"
               >
-                <X className="w-6 h-6 text-white" />
+                <X className="w-5 h-5 text-white" />
               </button>
             </div>
           </div>
